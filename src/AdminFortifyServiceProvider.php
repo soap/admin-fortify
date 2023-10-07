@@ -2,9 +2,9 @@
 
 namespace Soap\AdminFortify;
 
+use Soap\AdminFortify\Commands\AdminFortifyCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Soap\AdminFortify\Commands\AdminFortifyCommand;
 
 class AdminFortifyServiceProvider extends PackageServiceProvider
 {
