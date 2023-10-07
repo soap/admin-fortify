@@ -2,10 +2,10 @@
 
 namespace Soap\AdminFortify;
 
+use Laravel\Fortify\Fortify;
 use Soap\AdminFortify\Commands\AdminFortifyCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Laravel\Fortify\Fortify;
 
 class AdminFortifyServiceProvider extends PackageServiceProvider
 {
@@ -27,7 +27,7 @@ class AdminFortifyServiceProvider extends PackageServiceProvider
     {
         if (request()->is('admin/*')) {
             Fortify::viewPrefix('admin.auth.');
-        }else{
+        } else {
             Fortify::viewPrefix('auth.');
         }
     }
