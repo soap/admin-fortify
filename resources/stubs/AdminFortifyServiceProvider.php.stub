@@ -1,0 +1,23 @@
+<?php
+
+namespace App\Providers;
+
+use Laravel\Fortify\Fortify;
+use Illuminate\Support\ServiceProvider;
+
+class AdminFortifyServiceProvider extends ServiceProvider 
+{
+    public function register()
+    {
+        
+    }
+
+    public function boot()
+    {
+        if (request()->is('admin/*')) {
+            Fortify::viewPrefix('admin.auth.');
+        }else{
+            Fortify::viewPrefix('auth.');
+        }        
+    }
+}

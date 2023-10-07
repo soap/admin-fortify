@@ -19,10 +19,12 @@ class AdminFortifyServiceProvider extends PackageServiceProvider
         $package
             ->name('admin-fortify')
             ->hasConfigFile()
+            ->publishesServiceProvider('AdminFortifyServiceProvider')
             ->hasCommand(AdminFortifyCommand::class);
 
     }
 
+<<<<<<< HEAD
     public function boot()
     {
         if (request()->is('admin/*')) {
@@ -31,4 +33,6 @@ class AdminFortifyServiceProvider extends PackageServiceProvider
             Fortify::viewPrefix('auth.');
         }
     }
+=======
+>>>>>>> 056e47a (Publishs Add\Provider\AdminFortifyServiceProvider)
 }
