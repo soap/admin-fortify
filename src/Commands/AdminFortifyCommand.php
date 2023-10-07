@@ -6,9 +6,9 @@ use Illuminate\Console\Command;
 
 class AdminFortifyCommand extends Command
 {
-    public $signature = 'admin-fortify';
+    public $signature = 'admin-fortify:install';
 
-    public $description = 'My command';
+    public $description = 'Install Admin-Fortify package';
 
     public function handle(): int
     {

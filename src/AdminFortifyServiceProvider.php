@@ -5,6 +5,7 @@ namespace Soap\AdminFortify;
 use Soap\AdminFortify\Commands\AdminFortifyCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
+use Laravel\Fortify\Fortify;
 
 class AdminFortifyServiceProvider extends PackageServiceProvider
 {
@@ -18,8 +19,16 @@ class AdminFortifyServiceProvider extends PackageServiceProvider
         $package
             ->name('admin-fortify')
             ->hasConfigFile()
-            ->hasViews()
-            ->hasMigration('create_admin-fortify_table')
             ->hasCommand(AdminFortifyCommand::class);
+
+    }
+
+    public function boot()
+    {
+        if (request()->is('admin/*')) {
+            Fortify::viewPrefix('admin.auth.');
+        }else{
+            Fortify::viewPrefix('auth.');
+        }
     }
 }
